@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hey you</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header id="topbar" class="topbar" role="banner">
+      <div class="topbar-inner">
+        <div class="top-left">
+          <button class="icon-btn" aria-label="menu">☰</button>
+          <button class="icon-btn" aria-label="stats">📊</button>
+        </div>
+
+        <div class="top-title" aria-hidden="false">Hey you</div>
+
+        <div class="top-right">
+          <button class="icon-btn" aria-label="help">?</button>
+          <button class="icon-btn" aria-label="share">⤴</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="app">
+      <div id="statusRow" class="center hidden">
+        <div id="wordCount" class="word-count">0 / 1 words</div>
+      </div>
+      <div id="welcome" class="center">
+        <h1>Welcome! Would you like to begin?</h1>
+        <button id="beginBtn" class="btn">Begin</button>
+      </div>
+
+      <div id="gridWrap" class="center hidden">
+        <div id="grid" class="grid"></div>
+
+        <!-- Action buttons (centered below the grid) -->
+        <div class="action-row" aria-hidden="false">
+          <button id="yesSoft" class="btn btn-yes-soft">Yes</button>
+          <button id="yesPrimary" class="btn btn-yes">Absolutely Yes!!</button>
+        </div>
+      </div>
+
+    </main>
+
+    <script src="script.js"></script>
+    <!-- full-screen fireworks canvas (used for celebration) -->
+    <canvas id="fireworksCanvas" class="fireworks-canvas" aria-hidden="true"></canvas>
+  </body>
+</html>

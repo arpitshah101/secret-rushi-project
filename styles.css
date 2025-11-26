@@ -1,0 +1,56 @@
+:root{--bg:#ffffff;--text:#111111;--tile:#e6e6e6;--red:#da1f26;--flip-duration:700ms;--grid-padding:28px}
+*{box-sizing:border-box}
+html,body,#app{height:100%}
+body{background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;margin:0;display:flex;align-items:center;justify-content:center}
+
+/* header / topbar */
+:root{--header-red:#b71c1c;--header-red-2:#9b1616}
+.topbar{position:fixed;top:0;left:0;right:0;background:linear-gradient(180deg,var(--header-red),var(--header-red-2));height:56px;display:flex;align-items:center;box-shadow:0 6px 18px rgba(0,0,0,0.12);z-index:40}
+.topbar-inner{width:100%;max-width:420px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:8px 14px;color:white}
+.top-left,.top-right{display:flex;align-items:center;gap:8px}
+.top-title{font-weight:800;font-size:20px;letter-spacing:1px;color:white}
+.icon-btn{appearance:none;border:0;background:transparent;color:rgba(255,255,255,0.95);font-size:18px;padding:6px 8px;border-radius:6px;cursor:pointer}
+.icon-btn:active{opacity:0.8}
+
+/* keep content visible under the fixed header */
+main#app{padding-top:74px}
+.center{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.hidden{display:none}
+.btn{appearance:none;padding:12px 20px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01));color:var(--text);cursor:pointer;font-size:16px}
+
+#grid{display:grid;grid-template-columns:repeat(5, 72px);grid-auto-rows:72px;gap:12px}
+
+/* grid wrapper padding — change --grid-padding to control the space around the grid */
+#gridWrap{padding:var(--grid-padding);width:100%;max-width:420px;box-sizing:border-box}
+.tile{width:68px;height:68px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:var(--tile);color:#111;font-weight:700;font-size:28px;transform-style:preserve-3d;transition:transform var(--flip-duration) cubic-bezier(.22,.9,.3,1), background 220ms ease;position:relative}
+.tile .front, .tile .back{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;backface-visibility:hidden;border-radius:6px}
+.tile .front{transform:rotateX(0deg);}
+.tile .back{transform:rotateX(180deg);background:var(--red);color:white;border-radius:6px;font-weight:800}
+.tile.flipped{transform:rotateX(180deg)}
+
+/* when a tile's back is empty we keep the tile visually unchanged */
+.tile.blank{background:var(--tile);color:rgba(0,0,0,0.12);box-shadow:0 4px 0 rgba(0,0,0,0.06) inset}
+
+/* small responsive */
+@media (max-width:420px){#grid{grid-template-columns:repeat(5,48px);grid-auto-rows:48px;gap:8px}.tile{width:48px;height:48px;font-size:18px}}
+
+/* title spacing */
+#welcome h1{margin:0 0 16px 0;font-size:22px}
+
+/* status / words counter (centered under header) */
+.word-count{font-size:30px;font-weight:800;color:#0b0b0b;margin:4px 0 12px 0}
+.status-sub{font-size:12px;color:rgba(0,0,0,0.54)}
+
+/* action buttons under the grid */
+.action-row{display:flex;gap:12px;margin-top:20px;align-items:center;justify-content:center}
+.btn-yes{background:linear-gradient(180deg,#18a851,#0f8c44);border:1px solid rgba(0,0,0,0.18);color:white;padding:12px 22px;border-radius:9px;font-weight:700;box-shadow:0 8px 18px rgba(16,96,53,0.16);}
+.btn-yes-soft{background:linear-gradient(180deg,#5fcf84,#44b56b);border:1px solid rgba(255,255,255,0.07);color:white;padding:10px 20px;border-radius:9px;font-weight:700;opacity:0.9;box-shadow:none}
+
+/* slightly more visual polish for tiles to match screenshot */
+.tile{box-shadow:0 6px 0 rgba(0,0,0,0.06), inset 0 -1px 0 rgba(255,255,255,0.06)}
+
+/* fireworks overlay canvas */
+.fireworks-canvas{position:fixed;inset:0;margin:0;padding:0;width:100%;height:100%;pointer-events:none;z-index:80;mix-blend-mode:screen}
+
+/* dim main area while the fireworks are playing to improve contrast */
+main#app.dimmed{filter:brightness(0.6);transition:filter 260ms ease}
