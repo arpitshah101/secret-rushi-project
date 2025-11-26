@@ -257,7 +257,7 @@ beginBtn.addEventListener('click', () => {
         const y = randomRange(100, fwH * 0.5);
         spawnBurst(x, y, Math.round(randomRange(18, 36)));
         // also spawn celebratory words occasionally
-        if (Math.random() > 0.5) spawnFloatingText(['YES!!', 'ILOVEYOU', 'YAY', 'HAHAHEHE', 'WAHOO!!'][Math.floor(Math.random() * 4)], x - 20, y + 10);
+        if (Math.random() > 0.5) spawnFloatingText(['YES!!', 'ILOVEYOU', 'YAY', 'WAHOO!!'][Math.floor(Math.random() * 4)], x - 20, y + 10);
 
         if (!fwAnimId) fwAnimId = requestAnimationFrame(stepFireworks);
       }, delay);
