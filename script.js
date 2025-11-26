@@ -219,8 +219,8 @@ beginBtn.addEventListener('click', () => {
       fwCtx.save();
       fwCtx.globalAlpha = t.alpha;
       fwCtx.font = '700 42px Inter, system-ui, -apple-system, Arial';
-      fwCtx.fillStyle = '#e83e3e';
-      fwCtx.strokeStyle = 'rgba(255,255,255,0.12)';
+      fwCtx.fillStyle = '#ffee00ff';
+      fwCtx.strokeStyle = 'rgba(255, 255, 255, 0.02)';
       fwCtx.lineWidth = 4;
       fwCtx.strokeText(t.text, t.x, t.y);
       fwCtx.fillText(t.text, t.x, t.y);
