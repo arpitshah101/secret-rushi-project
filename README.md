@@ -35,3 +35,4 @@ Tip: To change which name is allowed, edit the check in `script.js` (currently m
 ## License
 Personal/Private project.
 # secret-rushi-project
+# secret-rushi-project
